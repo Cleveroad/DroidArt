@@ -1,0 +1,13 @@
+<resources>
+    <dimen name="xxlarge">34sp</dimen>
+    <dimen name="xlarge">24sp</dimen>
+    <dimen name="large">21sp</dimen>
+    <dimen name="medium">18sp</dimen>
+    <dimen name="small">16sp</dimen>
+    <dimen name="xsmall">14sp</dimen>
+
+    <dimen name="button_height">50dp</dimen>
+    <dimen name="pick_image_dialog_width">225dp</dimen>
+
+    <dimen name="item_offset">20dp</dimen>
+</resources>

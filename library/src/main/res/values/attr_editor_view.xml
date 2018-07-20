@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="EditorView">
+        <attr name="text" format="string"/>
+        <attr name="text_color" format="color"/>
+        <attr name="text_size" format="dimension"/>
+        <attr name="selector_color" format="color"/>
+        <attr name="button_color" format="color"/>
+        <attr name="font_id" format="integer"/>
+        <attr name="text_elevation_percent" format="integer"/>
+        <attr name="text_shadow_color" format="color"/>
+        <attr name="text_shadow_blur_radius" format="float"/>
+        <attr name="icon_reset_button" format="reference"/>
+        <attr name="icon_scale_button" format="reference"/>
+        <attr name="icon_change_view_button" format="reference"/>
+        <!--<attr name="need_to_show_selector" format="boolean" />-->
+    </declare-styleable>
+</resources>

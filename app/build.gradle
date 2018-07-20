@@ -1,0 +1,65 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
+    defaultConfig {
+        applicationId "com.cleveroad.droidwordart"
+        minSdkVersion 17
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+
+        buildConfigField "String", "FILEPROVIDER_NAME", "\"com.cleveroad.droidwordart.fileprovider\""
+    }
+    buildTypes {
+        debug {
+            minifyEnabled false
+            debuggable true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+}
+
+dependencies {
+    def supportVersion = "27.0.2"
+    def bootstrapVersion = "0.0.10"
+    def glideVersion = "4.4.0"
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    // Support
+    implementation "com.android.support:appcompat-v7:$supportVersion"
+    implementation "com.android.support:support-v4:$supportVersion"
+    implementation "com.android.support:design:$supportVersion"
+
+    implementation project(path: ':library')
+    implementation project(path: ':colorpicker')
+
+    // Bootstrap
+    implementation "com.cleveroad.bootstrap:kotlin-core:$bootstrapVersion"
+    implementation "com.cleveroad.bootstrap:kotlin-mvp-loader:$bootstrapVersion"
+    implementation "com.cleveroad.bootstrap:kotlin-permissionrequest:$bootstrapVersion"
+
+    // Glide
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
+    kapt "com.github.bumptech.glide:compiler:$glideVersion"
+
+    // MultiDex
+    implementation 'com.android.support:multidex:1.0.3'
+}
