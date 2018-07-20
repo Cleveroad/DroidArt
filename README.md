@@ -22,7 +22,7 @@ Try this simple and intuitive library for Android apps and bring new experience 
 by gradle : 
 ```groovy
 dependencies {
-    implementation 'com.cleveroad.wordart:wordart:1.0.0.SNAPSHOT'
+    implementation 'com.cleveroad.wordart:wordart:1.0.0'
 }
 ```
 ### Usage ###
