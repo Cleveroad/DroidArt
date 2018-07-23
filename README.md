@@ -1,13 +1,13 @@
-# WordArt [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome) <img src="https://www.cleveroad.com/public/comercial/label-android.svg" height="19"> <a href="https://www.cleveroad.com/?utm_source=github&utm_medium=label&utm_campaign=contacts"><img src="https://www.cleveroad.com/public/comercial/label-cleveroad.svg" height="19"></a>
+# DroidArt [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome) <img src="https://www.cleveroad.com/public/comercial/label-android.svg" height="19"> <a href="https://www.cleveroad.com/?utm_source=github&utm_medium=label&utm_campaign=contacts"><img src="https://www.cleveroad.com/public/comercial/label-cleveroad.svg" height="19"></a>
 ![Header image](/images/header.jpg)
 
-## Meet WordArt by Cleveroad
+## Meet DroidArt by Cleveroad
 
-We are happy to share our latest Android library with you -- DroidWordArt. The Android app component shows the example of WordArt library usage. It allows perform manipulations with text and easily combine it with images. If your app is about image editing, take a closer look at this customizable component.
+We are happy to share our latest Android library with you -- DroidDroidArt. The Android app component shows the example of DroidArt library usage. It allows perform manipulations with text and easily combine it with images. If your app is about image editing, take a closer look at this customizable component.
 
 ![Demo image](/images/demo.gif)
 
-Here is how the DroidWordArt app component works. The first step is to select a background. Users can choose an image from the device’s gallery or take a photo right away. The next step is to type text over the image. Users can customize text by choosing font, changing size and color, adding shadow and blurring it. 
+Here is how the DroidDroidArt app component works. The first step is to select a background. Users can choose an image from the device’s gallery or take a photo right away. The next step is to type text over the image. Users can customize text by choosing font, changing size and color, adding shadow and blurring it. 
 
 However, the main feature of the library is the possibility to bend text along the Bézier curve. Therefore, it can fit any shape of your background image. After all the manipulations, user can save the result in the device’s gallery. 
 
@@ -22,13 +22,13 @@ Try this simple and intuitive library for Android apps and bring new experience 
 by gradle : 
 ```groovy
 dependencies {
-    implementation 'com.cleveroad.wordart:wordart:1.0.0'
+    implementation 'com.cleveroad.DroidArt:DroidArt:1.0.0'
 }
 ```
 ### Usage ###
-#### WordArt ####
+#### DroidArt ####
 ```XML
-  <com.cleveroad.wordart.EditorView
+  <com.cleveroad.DroidArt.EditorView
           android:id="@+id/evSample"
           android:layout_width="match_parent"
           android:layout_height="match_parent"
@@ -244,9 +244,9 @@ private const val DASH_PATH_OFF_DISTANCE = 10F
 private const val DASH_PATH_PHASE = 0F
 private const val STROKE_WIDTH_FOR_DASH_LINE = 4F
 ...
-evWordArt = (EditorView) view.findViewById(R.id.editorView)
+evDroidArt = (EditorView) view.findViewById(R.id.editorView)
 
-evWordArt?.apply {
+evDroidArt?.apply {
     setPathEffectForSelector(
                 DashPathEffect(floatArrayOf(DASH_PATH_ON_DISTANCE, DASH_PATH_OFF_DISTANCE),
                 DASH_PATH_PHASE))
@@ -261,7 +261,7 @@ evWordArt?.apply {
 ```
 #### XML usage ####
 ```groovy
-   <com.cleveroad.wordart.EditorView
+   <com.cleveroad.DroidArt.EditorView
            android:id="@+id/evSample"
            android:layout_width="match_parent"
            android:layout_height="match_parent"
