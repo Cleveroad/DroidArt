@@ -3,11 +3,11 @@
 
 ## Meet DroidArt by Cleveroad
 
-We are happy to share our latest Android library with you -- DroidDroidArt. The Android app component shows the example of DroidArt library usage. It allows perform manipulations with text and easily combine it with images. If your app is about image editing, take a closer look at this customizable component.
+We are happy to share our latest Android library with you -- DroidArt. The Android app component shows the example of DroidArt library usage. It allows perform manipulations with text and easily combine it with images. If your app is about image editing, take a closer look at this customizable component.
 
 ![Demo image](/images/demo.gif)
 
-Here is how the DroidDroidArt app component works. The first step is to select a background. Users can choose an image from the device’s gallery or take a photo right away. The next step is to type text over the image. Users can customize text by choosing font, changing size and color, adding shadow and blurring it. 
+Here is how the DroidArt app component works. The first step is to select a background. Users can choose an image from the device’s gallery or take a photo right away. The next step is to type text over the image. Users can customize text by choosing font, changing size and color, adding shadow and blurring it. 
 
 However, the main feature of the library is the possibility to bend text along the Bézier curve. Therefore, it can fit any shape of your background image. After all the manipulations, user can save the result in the device’s gallery. 
 
