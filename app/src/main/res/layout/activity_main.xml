@@ -4,6 +4,6 @@
                 android:id="@+id/rootContainer"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:context="com.cleveroad.droidwordart.screens.main.MainActivity">
+                tools:context=".screens.main.MainActivity">
 
 </RelativeLayout>

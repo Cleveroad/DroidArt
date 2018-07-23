@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.cleveroad.droidwordart">
+          package="com.cleveroad.droidart.sample">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
@@ -12,7 +12,7 @@
         android:required="true"/>
 
     <application
-        android:name="com.cleveroad.droidwordart.WordArtApp"
+        android:name=".DroidArtApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -21,7 +21,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.cleveroad.droidwordart.screens.main.MainActivity"
+            android:name=".screens.main.MainActivity"
             android:windowSoftInputMode ="adjustNothing"
             android:screenOrientation="sensorPortrait"
             >
