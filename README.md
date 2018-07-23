@@ -22,13 +22,13 @@ Try this simple and intuitive library for Android apps and bring new experience 
 by gradle : 
 ```groovy
 dependencies {
-    implementation 'com.cleveroad.DroidArt:DroidArt:1.0.0'
+    implementation 'com.cleveroad.droidart:droidart:1.0.0'
 }
 ```
 ### Usage ###
 #### DroidArt ####
 ```XML
-  <com.cleveroad.DroidArt.EditorView
+  <com.cleveroad.droidart.EditorView
           android:id="@+id/evSample"
           android:layout_width="match_parent"
           android:layout_height="match_parent"
@@ -261,7 +261,7 @@ evDroidArt?.apply {
 ```
 #### XML usage ####
 ```groovy
-   <com.cleveroad.DroidArt.EditorView
+   <com.cleveroad.droidart.EditorView
            android:id="@+id/evSample"
            android:layout_width="match_parent"
            android:layout_height="match_parent"
