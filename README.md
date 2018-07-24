@@ -3,19 +3,18 @@
 
 ## Meet DroidArt by Cleveroad
 
-We are happy to share our latest Android library with you -- DroidArt. The Android app component shows the example of DroidArt library usage. It allows perform manipulations with text and easily combine it with images. If your app is about image editing, take a closer look at this customizable component.
+We are happy to share our latest Android library with you - DroidArt. The Android app component shows the example of DroidArt library usage. It allows perform manipulations with text and easily combine it with images. If your app is about image editing, take a closer look at this customizable component.
 
 ![Demo image](/images/demo.gif)
 
-Here is how the DroidArt app component works. The first step is to select a background. Users can choose an image from the device’s gallery or take a photo right away. The next step is to type text over the image. Users can customize text by choosing font, changing size and color, adding shadow and blurring it. 
+Here is how the DroidArt app component works. The first step is to select a background. Users can choose an image from the device’s gallery or take a photo right away. The next step is to type text over the image. Users can customize text by choosing font, changing size and color, adding shadow and blurring it.
 
-However, the main feature of the library is the possibility to bend text along the Bézier curve. Therefore, it can fit any shape of your background image. After all the manipulations, user can save the result in the device’s gallery. 
+However, the main feature of the library is the possibility to bend text along the Bézier curve. Therefore, it can fit any shape of your background image. After all the manipulations, user can save the result in the device’s gallery.
 
 Try this simple and intuitive library for Android apps and bring new experience to your app users. If you need more details on how you can use the component and what benefits it provides, get in touch with us.
 
 [![Awesome](/images/logo-footer.png)](https://www.cleveroad.com/?utm_source=github&utm_medium=label&utm_campaign=contacts)
 <br/>
-
 
 ## Setup and usage
 ### Installation
@@ -29,7 +28,7 @@ dependencies {
 #### DroidArt ####
 ```XML
   <com.cleveroad.droidart.EditorView
-          android:id="@+id/evSample"
+          android:id="@+id/evDroidArt"
           android:layout_width="match_parent"
           android:layout_height="match_parent"
           app:font_path="fonts/some_fonts.ttf"
@@ -244,7 +243,7 @@ private const val DASH_PATH_OFF_DISTANCE = 10F
 private const val DASH_PATH_PHASE = 0F
 private const val STROKE_WIDTH_FOR_DASH_LINE = 4F
 ...
-evDroidArt = (EditorView) view.findViewById(R.id.editorView)
+evDroidArt = (EditorView) view.findViewById(R.id.evDroidArt)
 
 evDroidArt?.apply {
     setPathEffectForSelector(
@@ -262,7 +261,7 @@ evDroidArt?.apply {
 #### XML usage ####
 ```groovy
    <com.cleveroad.droidart.EditorView
-           android:id="@+id/evSample"
+           android:id="@+id/evDroidArt"
            android:layout_width="match_parent"
            android:layout_height="match_parent"
            app:font_path="fonts/some_fonts.ttf"

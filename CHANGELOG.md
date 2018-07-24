@@ -1,2 +1,2 @@
-# WordArt
+# DroidArt
 ## Changelog

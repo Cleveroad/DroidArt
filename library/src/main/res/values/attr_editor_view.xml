@@ -13,6 +13,5 @@
         <attr name="icon_reset_button" format="reference"/>
         <attr name="icon_scale_button" format="reference"/>
         <attr name="icon_change_view_button" format="reference"/>
-        <!--<attr name="need_to_show_selector" format="boolean" />-->
     </declare-styleable>
 </resources>

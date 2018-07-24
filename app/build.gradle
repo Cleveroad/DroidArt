@@ -7,7 +7,7 @@ android {
     compileSdkVersion 27
     buildToolsVersion "27.0.3"
     defaultConfig {
-        applicationId "com.cleveroad.droidwordart"
+        applicationId "com.cleveroad.droidart.sample"
         minSdkVersion 17
         targetSdkVersion 27
         versionCode 1
@@ -15,7 +15,7 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
 
-        buildConfigField "String", "FILEPROVIDER_NAME", "\"com.cleveroad.droidwordart.fileprovider\""
+        buildConfigField "String", "FILEPROVIDER_NAME", "\"com.cleveroad.droidart.sample.fileprovider\""
     }
     buildTypes {
         debug {
