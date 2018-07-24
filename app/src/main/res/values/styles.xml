@@ -1,0 +1,45 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="BlackSmallTextStyle">
+        <item name="android:textSize">@dimen/small</item>
+        <item name="android:textColor">@color/black_text</item>
+    </style>
+
+    <style name="BlackXSmallTextStyle">
+        <item name="android:textSize">@dimen/xsmall</item>
+        <item name="android:textColor">@color/black_text</item>
+    </style>
+
+    <style name="WhiteXSmallTextStyle">
+        <item name="android:textSize">@dimen/xsmall</item>
+        <item name="android:textColor">@color/white_text</item>
+    </style>
+
+    <style name="WhiteXXLargeTextStyle">
+        <item name="android:textSize">@dimen/xxlarge</item>
+        <item name="android:textColor">@color/white_text</item>
+    </style>
+
+    <style name="TextShadowSmallTextStyle">
+        <item name="android:textSize">@dimen/small</item>
+        <item name="android:textColor">@color/textShadow_text</item>
+    </style>
+
+    <style name="TextShadowXSmallTextStyle">
+        <item name="android:textSize">@dimen/xsmall</item>
+        <item name="android:textColor">@color/textShadow_text</item>
+    </style>
+
+    <style name="MediumSlateBlueButton" parent="Base.TextAppearance.AppCompat.Button">
+        <item name="backgroundTint">@color/mediumslateblue_background</item>
+        <item name="android:textSize">@dimen/xsmall</item>
+        <item name="android:textColor">@color/white_text</item>
+    </style>
+
+</resources>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <color name="colorPrimary">@color/snow</color>
+    <color name="colorPrimaryDark">@color/black_1a</color>
+    <color name="colorAccent">@color/mediumslateblue</color>
+
+    <color name="red">#ff0000</color>
+    <color name="textShadow">#750d0d0d</color>
+    <color name="black">#000000</color>
+    <color name="black_1a">#1a000000</color>
+    <color name="white">#ffffff</color>
+    <color name="mediumslateblue">#7a6cfe</color>
+    <color name="manatee">#9a9a9a</color>
+    <color name="tuftsblue">#297fca</color>
+    <color name="mediumaquamarine">#69e0c6</color>
+    <color name="shamrock">#52c8ae</color>
+    <color name="tangerine">#f77905</color>
+    <color name="glitter">#e4eff9</color>
+    <color name="urobilin">#eab022</color>
+    <color name="tuftsblue_1">#307ec1</color>
+    <color name="timberwolf">#d8d8d8</color>
+    <color name="raspberrypink">#d7429e</color>
+    <color name="brightcerulean">#36abe7</color>
+    <color name="lightcarminepink">#ee5f79</color>
+    <color name="lavenderindigo">#895cfb</color>
+    <color name="ultramarineblue">#1d5fee</color>
+    <color name="isabelline">#eeeeee</color>
+    <color name="platinum">#e3e3e3</color>
+    <color name="ghostwhite">#f6fbfd</color>
+    <color name="snow">#fafafa</color>
+    <color name="junglegreen">#25b874</color>
+    <color name="electricultramarine">#2510ec</color>
+    <color name="charcoal">#37474f</color>
+    <color name="charcoal_1">#3c474d</color>
+    <color name="platinum_1">#e6e6e6</color>
+    <color name="gainsboro">#dedcdc</color>
+    <color name="ultramarineblue_1">#347cff</color>
+    <color name="prussianblue">#1b3554</color>
+    <color name="lavendergray">#c1c8d4</color>
+    <color name="violetblue">#31499c</color>
+    <color name="lightgreen">#8ee57d</color>
+    <color name="lightgreen_1">#86e074</color>
+    <color name="periwinkle">#cdc4ff</color>
+    <color name="teagreen">#c6ffc4</color>
+    <color name="gainsboro_1">#d6dae0</color>
+    <color name="celeste">#c4ebff</color>
+    <color name="mediumjunglegreen">#323232</color>
+
+    <color name="black_text">@color/black</color>
+    <color name="white_text">@color/white</color>
+    <color name="textShadow_text">@color/textShadow</color>
+    <color name="mediumslateblue_background">@color/mediumslateblue</color>
+    <color name="snow_background">@color/snow</color>
+    <color name="manatee_color_border">@color/manatee</color>
+
+    <array name="material_colors">
+        <item>@color/material_color_grey_50</item>
+        <item>@color/material_color_blue_grey_900</item>
+        <item>@color/material_color_grey_1000</item>
+        <item>@color/material_color_deep_orange_A700</item>
+        <item>@color/material_color_amber_900</item>
+        <item>@color/material_color_yellow_A700</item>
+        <item>@color/material_color_yellow_900</item>
+        <item>@color/material_color_lime_A700</item>
+        <item>@color/material_color_lime_900</item>
+        <item>@color/material_color_light_green_A700</item>
+        <item>@color/material_color_light_green_900</item>
+        <item>@color/material_color_green_A700</item>
+        <item>@color/material_color_green_900</item>
+        <item>@color/material_color_teal_A700</item>
+        <item>@color/material_color_teal_900</item>
+        <item>@color/material_color_cyan_A700</item>
+        <item>@color/material_color_cyan_900</item>
+        <item>@color/material_color_light_blue_A700</item>
+        <item>@color/material_color_light_blue_900</item>
+        <item>@color/material_color_blue_900</item>
+        <item>@color/material_color_indigo_900</item>
+        <item>@color/material_color_deep_purple_A700</item>
+        <item>@color/material_color_purple_A700</item>
+        <item>@color/material_color_pink_A700</item>
+        <item>@color/material_color_red_A700</item>
+    </array>
+
+</resources>

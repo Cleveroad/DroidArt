@@ -1,0 +1,64 @@
+<resources>
+    <string name="app_name">DroidArt</string>
+    <string name="add_some_awesome_pictures">Add some awesome pictures</string>
+    <string name="nothing_here">Nothing Here</string>
+    <string name="add_image">Add Image</string>
+    <string name="add_new_image">Add New Image</string>
+    <string name="upload_from_gallery">Upload from gallery</string>
+    <string name="use_camera">Use camera</string>
+    <string name="export">Export</string>
+    <string name="done">done</string>
+    <string name="shadow">Shadow</string>
+    <string name="blur">Blur</string>
+    <string name="font">Font</string>
+    <string name="Image_has_been_exported_to_gallery">Image has been exported to gallery</string>
+    <string name="preview">preview</string>
+    <string name="delete_image">Delete image</string>
+    <string name="cancel">Cancel</string>
+    <string name="edit_text">edit text</string>
+    <string name="reset_text">reset</string>
+    <string name="close_app_dialog_message">Do you really want to exit?</string>
+    <string name="text_positive_button">Yes</string>
+    <string name="text_negative_button">No</string>
+
+    <string-array name="fonts">
+        <item>Android default</item>
+        <item>Indie Flower</item>
+        <item>Lora Bold</item>
+        <item>Lora Bold Italic</item>
+        <item>Lora Italic</item>
+        <item>Lora Regular</item>
+        <item>Noto Sans Italic</item>
+        <item>Noto Sans Bold</item>
+        <item>Noto Sans Bold Italic</item>
+        <item>Noto Sans</item>
+        <item>Playfair Display Black</item>
+        <item>Playfair Display Black Italic</item>
+        <item>Playfair Display Bold</item>
+        <item>Playfair Display Bold Italic</item>
+        <item>Playfair Display Italic</item>
+        <item>Playfair Display Regular</item>
+        <item>Raleway Black</item>
+        <item>Raleway Black Italic</item>
+        <item>Raleway Bold</item>
+        <item>Raleway Bold Italic</item>
+        <item>Raleway ExtraBold</item>
+        <item>Raleway ExtraBold Italic</item>
+        <item>Raleway ExtraLight</item>
+        <item>Raleway ExtraLight Italic</item>
+        <item>Raleway Italic</item>
+        <item>Raleway Light</item>
+        <item>Raleway Light Italic</item>
+        <item>Raleway Medium</item>
+        <item>Raleway Medium Italic</item>
+        <item>Raleway</item>
+        <item>Raleway SemiBold</item>
+        <item>Raleway SemiBold Italic</item>
+        <item>Raleway Thin</item>
+        <item>Raleway Thin Italic</item>
+        <item>Roboto Slab Bold</item>
+        <item>Roboto Slab Light</item>
+        <item>Roboto Slab Regular</item>
+        <item>Roboto Slab Thin</item>
+    </string-array>
+</resources>
