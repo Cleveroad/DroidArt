@@ -132,7 +132,7 @@ class PickImageFragment : BSFragment<PickImagePresenter>(),
         }
 
     }
-    private var evWordArt: EditorView? = null
+    private var evDroidArt: EditorView? = null
     private val fonts = FontsFactory.getFonts()
     private var closeAppType = CloseAppType.NEUTRAL_CLOSE_APP
 
@@ -145,7 +145,7 @@ class PickImageFragment : BSFragment<PickImagePresenter>(),
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setClickListeners(this, bPickImageFirst, ivPickImage, fabAddWordArt, tvEditText, tvExport, tvResetText)
+        setClickListeners(this, bPickImageFirst, ivPickImage, fabAddDroidArt, tvEditText, tvExport, tvResetText)
 
         savedInstanceState?.let {
             currentPhotoPath = it.getString(CURRENT_PHOTO_PATH_EXTRA)
@@ -187,7 +187,7 @@ class PickImageFragment : BSFragment<PickImagePresenter>(),
     }
 
     override fun onDestroyView() {
-        evWordArt?.unsubscribeTouchEventCallback(touchEventCallback)
+        evDroidArt?.unsubscribeTouchEventCallback(touchEventCallback)
         super.onDestroyView()
     }
 
@@ -213,7 +213,7 @@ class PickImageFragment : BSFragment<PickImagePresenter>(),
                 REQUEST_PICK_IMAGE_FROM_GALLERY() -> data?.let { pickImageFromGalleryResult(data.data) }
                 REQUEST_PICK_IMAGE_FROM_CAMERA() -> pickImageFromCameraResult()
                 REQUEST_CREATE_WORD() -> {
-                    initWordArt()
+                    initDroidArt()
                     updateView(DisplayMode.MODE_PREVIEW_WORD)
                     data?.let { createWordResult(it.getStringExtra(WORD_EXTRA), it.getIntExtra(WORD_COLOR_EXTRA, Color.WHITE)) }
                 }
@@ -224,7 +224,7 @@ class PickImageFragment : BSFragment<PickImagePresenter>(),
     }
 
     override fun onSelectedColor(color: Int) {
-        evWordArt?.textColor = color
+        evDroidArt?.textColor = color
     }
 
     override fun onClick(v: View) {
@@ -232,19 +232,19 @@ class PickImageFragment : BSFragment<PickImagePresenter>(),
             R.id.bPickImageFirst, R.id.ivPickImage ->
                 PickImageDialogFragment.newInstance(this, REQUEST_DIALOG_PICK_IMAGE())
                         .show(fragmentManager, PickImageDialogFragment::class.java.simpleName)
-            R.id.fabAddWordArt -> {
+            R.id.fabAddDroidArt -> {
                 updateView(DisplayMode.MODE_CREATE_WORD)
                 CreateWordDialogFragment.newInstance(this, REQUEST_CREATE_WORD())
                         .show(fragmentManager, CreateWordDialogFragment::class.java.simpleName)
             }
             R.id.tvEditText -> {
                 updateView(DisplayMode.MODE_EDIT_WORD)
-                CreateWordDialogFragment.newInstance(this, REQUEST_CREATE_WORD(), evWordArt?.text
-                        ?: DEFAULT_TEXT, evWordArt?.textColor ?: Color.WHITE)
+                CreateWordDialogFragment.newInstance(this, REQUEST_CREATE_WORD(), evDroidArt?.text
+                        ?: DEFAULT_TEXT, evDroidArt?.textColor ?: Color.WHITE)
                         .show(fragmentManager, CreateWordDialogFragment::class.java.simpleName)
             }
             R.id.tvExport -> saveImage()
-            R.id.tvResetText -> evWordArt?.resetViewText()
+            R.id.tvResetText -> evDroidArt?.resetViewText()
         }
     }
 
@@ -315,7 +315,7 @@ class PickImageFragment : BSFragment<PickImagePresenter>(),
     }
 
     private fun createWordResult(word: String, colorWord: Int) {
-        evWordArt?.apply {
+        evDroidArt?.apply {
             text = word
             textColor = colorWord
             visible()
@@ -365,11 +365,11 @@ class PickImageFragment : BSFragment<PickImagePresenter>(),
             when (it.id) {
                 R.id.sbShadow -> {
                     tvShadow.text = String.format(PROGRESS_SHADOW_FORMAT, progress, PROGRESS_SHADOW_UNIT)
-                    evWordArt?.textElevationPercent = progress
+                    evDroidArt?.textElevationPercent = progress
                 }
                 R.id.sbShadowBlur -> {
                     tvShadowBlur.text = DecimalFormat(PROGRESS_BLUR_FORMAT).format(progress)
-                    evWordArt?.textShadowBlurRadius = if (progress == START_PROGRESS) DEFAULT_BLUR_RADIUS else progress.toFloat()
+                    evDroidArt?.textShadowBlurRadius = if (progress == START_PROGRESS) DEFAULT_BLUR_RADIUS else progress.toFloat()
                 }
             }
         }
@@ -383,13 +383,13 @@ class PickImageFragment : BSFragment<PickImagePresenter>(),
         // do nothing
     }
 
-    private fun initWordArt() {
+    private fun initDroidArt() {
         if (!isInitEditorView) {
             val lParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT)
 
-            evWordArt = context?.let { EditorView(it) }
+            evDroidArt = context?.let { EditorView(it) }
 
-            evWordArt?.apply {
+            evDroidArt?.apply {
                 setPathEffectForSelector(
                         DashPathEffect(floatArrayOf(DASH_PATH_ON_DISTANCE, DASH_PATH_OFF_DISTANCE), DASH_PATH_PHASE))
                 setStrokeWidthForDashLine(STROKE_WIDTH_FOR_DASH_LINE)
@@ -401,7 +401,7 @@ class PickImageFragment : BSFragment<PickImagePresenter>(),
                 subscribeTouchEventCallback(touchEventCallback)
             }
 
-            evLayout.addView(evWordArt, lParams)
+            evLayout.addView(evDroidArt, lParams)
             isInitEditorView = !isInitEditorView
         }
     }
@@ -419,7 +419,7 @@ class PickImageFragment : BSFragment<PickImagePresenter>(),
         spFonts.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
 
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                evWordArt?.fontId = fonts[position]
+                evDroidArt?.fontId = fonts[position]
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -433,7 +433,7 @@ class PickImageFragment : BSFragment<PickImagePresenter>(),
         context?.let {
             createImageFileTemp(it).also { fileTemp ->
                 val bitmapDrawable = (ivSelectedImage.drawable as BitmapDrawable).bitmap
-                saveBitmap(fileTemp, evWordArt?.saveResult(bitmapDrawable)
+                saveBitmap(fileTemp, evDroidArt?.saveResult(bitmapDrawable)
                         ?: saveResult(bitmapDrawable))
                 ContentValues().apply {
                     put(Images.Media.DATE_TAKEN, System.currentTimeMillis())
@@ -488,18 +488,18 @@ class PickImageFragment : BSFragment<PickImagePresenter>(),
                 showViews(llImageNotLoad, bPickImageFirst)
                 wordSettingsBottomSheet.state = BottomSheetBehavior.STATE_HIDDEN
                 ivSelectedImage.setImageDrawable(null)
-                hideViews(ivPickImage, tvExport, ivSelectedImage, fabAddWordArt)
+                hideViews(ivPickImage, tvExport, ivSelectedImage, fabAddDroidArt)
                 evLayout.removeAllViews()
                 isInitEditorView = !isInitEditorView
             }
             DisplayMode.MODE_PREVIEW_IMAGE -> {
-                showViews(ivPickImage, tvExport, ivSelectedImage, fabAddWordArt)
+                showViews(ivPickImage, tvExport, ivSelectedImage, fabAddDroidArt)
                 hideViews(llImageNotLoad, bPickImageFirst)
             }
-            DisplayMode.MODE_CREATE_WORD -> hideViews(ivPickImage, tvExport, fabAddWordArt)
+            DisplayMode.MODE_CREATE_WORD -> hideViews(ivPickImage, tvExport, fabAddDroidArt)
             DisplayMode.MODE_PREVIEW_WORD -> {
                 if (currentDisplayMode != DisplayMode.MODE_EDIT_WORD) {
-                    showViews(ivPickImage, tvExport, fabAddWordArt)
+                    showViews(ivPickImage, tvExport, fabAddDroidArt)
                     hideViews(tvResetText)
                 }
                 wordSettingsBottomSheet.state = BottomSheetBehavior.STATE_HIDDEN
@@ -508,17 +508,17 @@ class PickImageFragment : BSFragment<PickImagePresenter>(),
             }
             DisplayMode.MODE_ON_EDIT_STYLE -> {
                 wordSettingsBottomSheet.state = BottomSheetBehavior.STATE_EXPANDED
-                evWordArt?.setBitmapChangeViewTextButton(R.drawable.ic_curve_black_24dp)
+                evDroidArt?.setBitmapChangeViewTextButton(R.drawable.ic_curve_black_24dp)
                 showViews(tvEditText)
                 hideViews(ivPickImage, tvExport, tvResetText)
                 showButtonAndFrame()
             }
             DisplayMode.MODE_OFF_EDIT_STYLE -> {
-                evWordArt?.setBitmapChangeViewTextButton(R.drawable.ic_check_black_24dp)
+                evDroidArt?.setBitmapChangeViewTextButton(R.drawable.ic_check_black_24dp)
                 showViews(tvResetText)
             }
             DisplayMode.MODE_EDIT_WORD -> {
-                hideViews(tvEditText, fabAddWordArt)
+                hideViews(tvEditText, fabAddDroidArt)
                 wordSettingsBottomSheet.state = BottomSheetBehavior.STATE_HIDDEN
                 hideButtonAndFrame()
             }
@@ -527,14 +527,14 @@ class PickImageFragment : BSFragment<PickImagePresenter>(),
     }
 
     private fun showButtonAndFrame() {
-        evWordArt?.apply {
+        evDroidArt?.apply {
             showChangeViewTextButton(ShowButtonOnSelector.SHOW_BUTTON)
             setColorForSelector(SELECTOR_COLOR_DEFAULT)
         }
     }
 
     private fun hideButtonAndFrame() {
-        evWordArt?.apply {
+        evDroidArt?.apply {
             if (getChangeViewTextMode() == ChangeText.ON_CHANGE_VIEW_TEXT) changeViewTextMode(ChangeText.OFF_CHANGE_VIEW_TEXT)
             showChangeViewTextButton(ShowButtonOnSelector.HIDE_BUTTON)
             setColorForSelector(Color.TRANSPARENT)
