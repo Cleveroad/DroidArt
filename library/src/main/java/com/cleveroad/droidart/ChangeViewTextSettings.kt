@@ -486,7 +486,7 @@ internal class ChangeViewTextSettings : Parcelable {
     }
 
     /**
-     * Check if point is inside this rectangle
+     * Check if point is inside of given rectangle by coordinates
      *
      * @param  xTouch    X coordinate of point to check
      * @param  yTouch    Y coordinate of point to check
@@ -499,7 +499,7 @@ internal class ChangeViewTextSettings : Parcelable {
      * @param      x4    The X coordinate of the right bottom of the rectangle
      * @param      y4    The Y coordinate of the right bottom of the rectangle
      *
-     * @return true if point is inside of this rectangle and false in otherwise
+     * @return true if point is inside of given rectangle and false in otherwise
      */
     private fun isInPosition(xTouch: Float, yTouch: Float, x1: Float, y1: Float, x2: Float, y2: Float, x3: Float, y3: Float, x4: Float, y4: Float): Boolean {
         pseudoScalars.clear()
