@@ -25,7 +25,7 @@ class PickImageDialogFragment : BSDialogFragment(), View.OnClickListener {
     companion object {
         val PICK_IMAGE_EXTRA = getExtra("PICK_IMAGE_TYPE", PickImageDialogFragment::class.java)
 
-        fun newInstance() = PickImageDialogFragment().apply {
+        private fun newInstance() = PickImageDialogFragment().apply {
             arguments = Bundle()
         }
 
