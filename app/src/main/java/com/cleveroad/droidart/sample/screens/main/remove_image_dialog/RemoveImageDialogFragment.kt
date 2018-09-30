@@ -22,7 +22,7 @@ class RemoveImageDialogFragment : BSDialogFragment(), View.OnClickListener {
 
     companion object {
 
-        fun newInstance(): RemoveImageDialogFragment = RemoveImageDialogFragment().apply {
+        private fun newInstance(): RemoveImageDialogFragment = RemoveImageDialogFragment().apply {
             arguments = Bundle()
         }
 
