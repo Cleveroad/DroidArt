@@ -11,6 +11,7 @@
     app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
 
     <android.support.v7.widget.RecyclerView
+        android:layout_marginTop="8dp"
         android:id="@+id/rvColorPicker"
         android:layout_width="match_parent"
         android:layout_height="40dp"/>
