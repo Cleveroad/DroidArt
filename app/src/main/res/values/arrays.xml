@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="fonts">
+        <item>Android default</item>
+        <item>Indie Flower</item>
+        <item>Lora Bold</item>
+        <item>Lora Bold Italic</item>
+        <item>Lora Italic</item>
+        <item>Lora Regular</item>
+        <item>Noto Sans Italic</item>
+        <item>Noto Sans Bold</item>
+        <item>Noto Sans Bold Italic</item>
+        <item>Noto Sans</item>
+        <item>Playfair Display Black</item>
+        <item>Playfair Display Black Italic</item>
+        <item>Playfair Display Bold</item>
+        <item>Playfair Display Bold Italic</item>
+        <item>Playfair Display Italic</item>
+        <item>Playfair Display Regular</item>
+        <item>Raleway Black</item>
+        <item>Raleway Black Italic</item>
+        <item>Raleway Bold</item>
+        <item>Raleway Bold Italic</item>
+        <item>Raleway ExtraBold</item>
+        <item>Raleway ExtraBold Italic</item>
+        <item>Raleway ExtraLight</item>
+        <item>Raleway ExtraLight Italic</item>
+        <item>Raleway Italic</item>
+        <item>Raleway Light</item>
+        <item>Raleway Light Italic</item>
+        <item>Raleway Medium</item>
+        <item>Raleway Medium Italic</item>
+        <item>Raleway</item>
+        <item>Raleway SemiBold</item>
+        <item>Raleway SemiBold Italic</item>
+        <item>Raleway Thin</item>
+        <item>Raleway Thin Italic</item>
+        <item>Roboto Slab Bold</item>
+        <item>Roboto Slab Light</item>
+        <item>Roboto Slab Regular</item>
+        <item>Roboto Slab Thin</item>
+    </string-array>
+</resources>
