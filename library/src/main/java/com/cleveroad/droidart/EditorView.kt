@@ -49,6 +49,7 @@ class EditorView : View {
         private const val DEFAULT_CENTER_CANVAS = 0F
         private const val LEFT_DRAWABLE_BOUNDING = 0
         private const val RIGHT_DRAWABLE_BOUNDING = 0
+        private const val DEFAULT_TEXT = ""
     }
 
     private var scaleBitmap: Bitmap? = null
@@ -194,7 +195,7 @@ class EditorView : View {
         with(typedArray) {
             with(textSettings) {
                 textColor = getColor(R.styleable.EditorView_text_color, Color.BLACK)
-                text = getString(R.styleable.EditorView_text) ?: ""
+                text = (getString(R.styleable.EditorView_text) ?: DEFAULT_TEXT).trim()
                 textSize = getDimension(R.styleable.EditorView_text_size, convertSpToFloat(getContext(), DEFAULT_TEXT_SIZE))
                 if (typedArray.hasValue(R.styleable.EditorView_font_id)) {
                     fontId = getResourceId(R.styleable.EditorView_font_id, Typeface.DEFAULT.style)
@@ -780,7 +781,7 @@ class EditorView : View {
     var text: String
         get() = textSettings.text
         set(text) {
-            textSettings.text = text
+            textSettings.text = text.trim()
             initTextPaint()
             invalidateSelectorVisibility(text)
             invalidate()
@@ -1071,6 +1072,18 @@ class EditorView : View {
         resultCanvas.drawBitmap(tempBitmap, -leftOffset, -topOffset, Paint())
 
         return resultBitmap
+    }
+
+    /**
+     * Use the method to move text to the center of the screen
+     */
+    fun moveTextToCenter() {
+        val rotX = xPos - rotatedSelectorRectangle.centerX()
+        val rotY = yPos - rotatedSelectorRectangle.centerY()
+        rotateSettings.resetRotation()
+        needToRestoreTranslations = true
+        translationSettings.resetTranslation(rotX, rotY)
+        invalidate()
     }
 
     /**

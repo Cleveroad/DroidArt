@@ -7,6 +7,8 @@
     android:layout_height="wrap_content"
     android:background="@color/snow_background"
     android:orientation="vertical"
+    android:clickable="true"
+    android:focusable="true"
     app:behavior_hideable="true"
     app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
 

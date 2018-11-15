@@ -21,7 +21,7 @@ Try this simple and intuitive library for Android apps and bring new experience 
 by gradle : 
 ```groovy
 dependencies {
-    implementation 'com.cleveroad.droidart:droidart:1.0.0'
+    implementation 'com.cleveroad.droidart:droidart:1.0.1'
 }
 ```
 ### Usage ###
@@ -235,6 +235,11 @@ fun resetViewText()
  */
 fun saveResult(bitmap: Bitmap): Bitmap
 
+/**
+ * Use the method to move text to the center of the screen
+ */
+fun moveTextToCenter()
+
 ```
 #### Fragment/Activity usage ####
 ```groovy
@@ -270,6 +275,10 @@ evDroidArt?.apply {
            app:text_shadow_color="@color/text_shadow"
            app:text_size="25sp"/>
 ```
+
+## Changelog
+See [changelog history].
+
 ### Support ###
 If you have any questions, issues or propositions, please create a <a href="../../issues/new">new issue</a> in this repository.
 

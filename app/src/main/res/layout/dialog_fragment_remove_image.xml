@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/llRemoveImageDialog"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/snow_background"
     android:orientation="vertical"
-    android:paddingBottom="8dp"
     android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    android:clickable="true"
+    android:focusable="true"
     app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
 
     <LinearLayout
@@ -24,8 +25,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_delete_black_24dp"
-            />
+            android:src="@drawable/ic_delete_black_24dp" />
 
         <TextView
             style="@style/BlackSmallTextStyle"
@@ -33,7 +33,31 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="32dp"
-            android:text="@string/delete_image"/>
+            android:text="@string/delete_image" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llMoveToCenter"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_center_focus_black_24dp" />
+
+        <TextView
+            style="@style/BlackSmallTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="32dp"
+            android:text="@string/move_text_to_center" />
     </LinearLayout>
 
     <LinearLayout
@@ -49,8 +73,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:src="@drawable/ic_close_black_24dp"
-            />
+            android:src="@drawable/ic_close_black_24dp" />
 
         <TextView
             style="@style/BlackSmallTextStyle"
@@ -58,6 +81,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="32dp"
-            android:text="@string/cancel"/>
+            android:text="@string/cancel" />
     </LinearLayout>
 </LinearLayout>

@@ -1,5 +1,6 @@
 package com.cleveroad.droidart
 
+import android.graphics.PointF
 import android.os.Parcel
 import android.os.Parcelable
 
@@ -35,6 +36,16 @@ internal class TranslationSettings : Settings {
      */
     internal val translationY: Float
         get() = storedTranslationY + yEnd - yStart
+
+    /**
+     * Sets the default value for translation
+     */
+    internal fun resetTranslation(translationX: Float, translationY: Float){
+        storedTranslationX += translationX
+        storedTranslationY += translationY
+        startPoint = PointF()
+        endPoint = PointF()
+    }
 
     constructor() : super()
 

@@ -45,6 +45,7 @@ import com.cleveroad.droidart.*
 import com.cleveroad.droidart.sample.BuildConfig
 import com.cleveroad.droidart.sample.R
 import com.cleveroad.droidart.sample.R.array.material_colors
+import com.cleveroad.droidart.sample.models.ActionType
 import com.cleveroad.droidart.sample.models.CloseAppType
 import com.cleveroad.droidart.sample.models.DisplayMode
 import com.cleveroad.droidart.sample.models.PickImageType
@@ -145,7 +146,7 @@ class PickImageFragment : BSFragment<PickImagePresenter>(),
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setClickListeners(this, bPickImageFirst, ivPickImage, fabAddDroidArt, tvEditText, tvExport, tvResetText)
+        setClickListeners(this, bPickImageFirst, ivPickImage, fabAddWordArt, tvEditText, tvExport, tvResetText)
 
         savedInstanceState?.let {
             currentPhotoPath = it.getString(CURRENT_PHOTO_PATH_EXTRA)
@@ -213,11 +214,12 @@ class PickImageFragment : BSFragment<PickImagePresenter>(),
                 REQUEST_PICK_IMAGE_FROM_GALLERY() -> data?.let { pickImageFromGalleryResult(data.data) }
                 REQUEST_PICK_IMAGE_FROM_CAMERA() -> pickImageFromCameraResult()
                 REQUEST_CREATE_WORD() -> {
-                    initDroidArt()
+                    initWordArt()
                     updateView(DisplayMode.MODE_PREVIEW_WORD)
                     data?.let { createWordResult(it.getStringExtra(WORD_EXTRA), it.getIntExtra(WORD_COLOR_EXTRA, Color.WHITE)) }
                 }
-                REQUEST_DIALOG_REMOVE_IMAGE() -> updateView(DisplayMode.MODE_PICK_IMAGE)
+                REQUEST_DIALOG_REMOVE_IMAGE() ->
+                    data?.let { dialogRemoveImageResult(data.getSerializableExtra(RemoveImageDialogFragment.ACTION_EXTRA) as ActionType) }
             }
         }
         if (resultCode == Activity.RESULT_CANCELED && requestCode == REQUEST_CREATE_WORD()) updateView(DisplayMode.MODE_PREVIEW_WORD)
@@ -232,7 +234,7 @@ class PickImageFragment : BSFragment<PickImagePresenter>(),
             R.id.bPickImageFirst, R.id.ivPickImage ->
                 PickImageDialogFragment.newInstance(this, REQUEST_DIALOG_PICK_IMAGE())
                         .show(fragmentManager, PickImageDialogFragment::class.java.simpleName)
-            R.id.fabAddDroidArt -> {
+            R.id.fabAddWordArt -> {
                 updateView(DisplayMode.MODE_CREATE_WORD)
                 CreateWordDialogFragment.newInstance(this, REQUEST_CREATE_WORD())
                         .show(fragmentManager, CreateWordDialogFragment::class.java.simpleName)
@@ -287,6 +289,13 @@ class PickImageFragment : BSFragment<PickImagePresenter>(),
                     .setNegativeButton(R.string.text_negative_button, this)
                     .create()
                     .show()
+        }
+    }
+
+    private fun dialogRemoveImageResult(type: ActionType) {
+        when (type) {
+            ActionType.DELETE -> updateView(DisplayMode.MODE_PICK_IMAGE)
+            ActionType.RESET -> moveTextToCenter()
         }
     }
 
@@ -383,7 +392,7 @@ class PickImageFragment : BSFragment<PickImagePresenter>(),
         // do nothing
     }
 
-    private fun initDroidArt() {
+    private fun initWordArt() {
         if (!isInitEditorView) {
             val lParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT)
 
@@ -488,18 +497,18 @@ class PickImageFragment : BSFragment<PickImagePresenter>(),
                 showViews(llImageNotLoad, bPickImageFirst)
                 wordSettingsBottomSheet.state = BottomSheetBehavior.STATE_HIDDEN
                 ivSelectedImage.setImageDrawable(null)
-                hideViews(ivPickImage, tvExport, ivSelectedImage, fabAddDroidArt)
+                hideViews(ivPickImage, tvExport, ivSelectedImage, fabAddWordArt)
                 evLayout.removeAllViews()
                 isInitEditorView = !isInitEditorView
             }
             DisplayMode.MODE_PREVIEW_IMAGE -> {
-                showViews(ivPickImage, tvExport, ivSelectedImage, fabAddDroidArt)
+                showViews(ivPickImage, tvExport, ivSelectedImage, fabAddWordArt)
                 hideViews(llImageNotLoad, bPickImageFirst)
             }
-            DisplayMode.MODE_CREATE_WORD -> hideViews(ivPickImage, tvExport, fabAddDroidArt)
+            DisplayMode.MODE_CREATE_WORD -> hideViews(ivPickImage, tvExport, fabAddWordArt)
             DisplayMode.MODE_PREVIEW_WORD -> {
                 if (currentDisplayMode != DisplayMode.MODE_EDIT_WORD) {
-                    showViews(ivPickImage, tvExport, fabAddDroidArt)
+                    showViews(ivPickImage, tvExport, fabAddWordArt)
                     hideViews(tvResetText)
                 }
                 wordSettingsBottomSheet.state = BottomSheetBehavior.STATE_HIDDEN
@@ -518,7 +527,7 @@ class PickImageFragment : BSFragment<PickImagePresenter>(),
                 showViews(tvResetText)
             }
             DisplayMode.MODE_EDIT_WORD -> {
-                hideViews(tvEditText, fabAddDroidArt)
+                hideViews(tvEditText, fabAddWordArt)
                 wordSettingsBottomSheet.state = BottomSheetBehavior.STATE_HIDDEN
                 hideButtonAndFrame()
             }
@@ -539,6 +548,10 @@ class PickImageFragment : BSFragment<PickImagePresenter>(),
             showChangeViewTextButton(ShowButtonOnSelector.HIDE_BUTTON)
             setColorForSelector(Color.TRANSPARENT)
         }
+    }
+
+    private fun moveTextToCenter(){
+        evDroidArt?.moveTextToCenter()
     }
 
     private fun showViews(vararg views: View) = views.forEach { it.visible() }

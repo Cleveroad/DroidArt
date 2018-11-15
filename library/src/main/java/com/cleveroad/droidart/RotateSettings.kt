@@ -51,6 +51,13 @@ internal class RotateSettings : BaseDrawingSettings {
     }
 
     /**
+     * Sets the default value for rotation
+     */
+    internal fun resetRotation(){
+        storedRotation = DEFAULT_ROTATION
+    }
+
+    /**
      * Return value for rotation
      *
      * @return [Float] value of rotation
