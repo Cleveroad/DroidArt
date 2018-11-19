@@ -20,6 +20,9 @@
     <string name="close_app_dialog_message">Do you really want to exit?</string>
     <string name="text_positive_button">Yes</string>
     <string name="text_negative_button">No</string>
+    <string name="your_text">Your text</string>
+    <string name="move_text_to_center">Move text to center</string>
+    <string name="empty_text_error">Text cannot be empty.</string>
 
     <string-array name="fonts">
         <item>Android default</item>

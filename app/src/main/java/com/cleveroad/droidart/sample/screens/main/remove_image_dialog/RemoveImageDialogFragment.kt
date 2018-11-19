@@ -7,7 +7,9 @@ import android.support.v4.app.Fragment
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
+import com.cleveroad.bootstrap.kotlin_core.utils.misc.MiscellaneousUtils.getExtra
 import com.cleveroad.droidart.sample.R
+import com.cleveroad.droidart.sample.models.ActionType
 import com.cleveroad.droidart.sample.models.DialogSize
 import com.cleveroad.droidart.sample.screens.base.BSDialogFragment
 import kotlinx.android.synthetic.main.dialog_fragment_remove_image.*
@@ -21,6 +23,7 @@ class RemoveImageDialogFragment : BSDialogFragment(), View.OnClickListener {
         get() = DialogSize(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
 
     companion object {
+        val ACTION_EXTRA = getExtra("PICK_IMAGE_TYPE", RemoveImageDialogFragment::class.java)
 
         fun newInstance(): RemoveImageDialogFragment = RemoveImageDialogFragment().apply {
             arguments = Bundle()
@@ -32,7 +35,7 @@ class RemoveImageDialogFragment : BSDialogFragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setClickListeners(this, llRemoveImage, llCancelDialog)
+        setClickListeners(this, llRemoveImage, llCancelDialog, llMoveToCenter)
     }
 
     override fun onResume() {
@@ -41,7 +44,14 @@ class RemoveImageDialogFragment : BSDialogFragment(), View.OnClickListener {
     }
 
     override fun onClick(v: View) {
-        if (v.id == R.id.llRemoveImage) targetFragment?.onActivityResult(targetRequestCode, RESULT_OK, Intent())
+        when (v.id) {
+            R.id.llRemoveImage -> callOnActivityResultTargetFragment(ActionType.DELETE)
+            R.id.llMoveToCenter -> callOnActivityResultTargetFragment(ActionType.RESET)
+        }
         dismiss()
+    }
+
+    private fun callOnActivityResultTargetFragment(actionType: ActionType) {
+        targetFragment?.onActivityResult(targetRequestCode, RESULT_OK, Intent().putExtra(ACTION_EXTRA, actionType))
     }
 }

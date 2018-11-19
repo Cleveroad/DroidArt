@@ -15,6 +15,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import com.cleveroad.bootstrap.kotlin_core.utils.misc.MiscellaneousUtils.getExtra
 import com.cleveroad.colorpicker.CircleProperty
 import com.cleveroad.colorpicker.ColorPickerAdapter
@@ -87,15 +88,24 @@ class CreateWordDialogFragment : BSDialogFragment(), OnSelectedColorListener, Vi
     override fun onClick(v: View) {
         when (v.id) {
             R.id.tvDone -> {
-                etWord.clearFocus()
-                targetFragment?.onActivityResult(
-                        targetRequestCode,
-                        RESULT_OK,
-                        Intent().putExtra(WORD_EXTRA, etWord.text.toString()).putExtra(WORD_COLOR_EXTRA, etWord.currentTextColor))
+                val text = etWord.text.toString().trim()
+                if (text.isNotBlank()) {
+                    etWord.clearFocus()
+                    targetFragment?.onActivityResult(
+                            targetRequestCode,
+                            RESULT_OK,
+                            Intent().putExtra(WORD_EXTRA, text)
+                                    .putExtra(WORD_COLOR_EXTRA, etWord.currentTextColor))
+                    dismiss()
+                } else {
+                    showEmptyTextError()
+                }
             }
-            R.id.ivBack -> targetFragment?.onActivityResult(targetRequestCode, RESULT_CANCELED, Intent())
+            R.id.ivBack -> {
+                targetFragment?.onActivityResult(targetRequestCode, RESULT_CANCELED, Intent())
+                dismiss()
+            }
         }
-        dismiss()
     }
 
     override fun onCancel(dialog: DialogInterface?) {
@@ -110,4 +120,7 @@ class CreateWordDialogFragment : BSDialogFragment(), OnSelectedColorListener, Vi
         super.onStop()
     }
 
+    private fun showEmptyTextError(){
+        Toast.makeText(context, R.string.empty_text_error, Toast.LENGTH_SHORT).show()
+    }
 }

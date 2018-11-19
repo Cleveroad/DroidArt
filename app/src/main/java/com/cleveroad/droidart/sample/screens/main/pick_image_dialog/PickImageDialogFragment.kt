@@ -54,5 +54,4 @@ class PickImageDialogFragment : BSDialogFragment(), View.OnClickListener {
         }
         dismiss()
     }
-
 }

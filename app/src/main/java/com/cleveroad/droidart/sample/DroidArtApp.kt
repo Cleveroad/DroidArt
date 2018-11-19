@@ -7,13 +7,13 @@ import com.cleveroad.bootstrap.kotlin_core.utils.misc.MiscellaneousUtils
 
 class DroidArtApp : Application() {
     companion object {
-        lateinit var instance: DroidArtApp
+        lateinit var mInstance: DroidArtApp
             private set
     }
 
     override fun onCreate() {
         super.onCreate()
-        instance = this
+        mInstance = this
         MiscellaneousUtils.defaultPackageName = packageName
     }
 

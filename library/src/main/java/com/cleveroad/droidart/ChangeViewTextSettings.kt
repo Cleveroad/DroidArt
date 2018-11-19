@@ -62,7 +62,7 @@ internal class ChangeViewTextSettings : Parcelable {
     internal var distanceRight = DEFAULT_DISTANCE
         private set
 
-    internal var textMeasure = DEFAULT_TEXT_MEASURE
+    private var textMeasure = DEFAULT_TEXT_MEASURE
         private set
 
     private val pseudoScalars = mutableListOf<Float>()
@@ -122,7 +122,6 @@ internal class ChangeViewTextSettings : Parcelable {
     }
 
     internal fun computePathBezierCurve(): Path {
-
         val flow: List<Array<Float>>
         val arr = arrayOf(
                 arrayOf(leftPointCurve.x, leftPointCurve.y),
@@ -156,7 +155,6 @@ internal class ChangeViewTextSettings : Parcelable {
      * @return Path of the bezier curve
      */
     internal fun computeMinMaxBezierCurve(diff: Float, textSize: Float, textMeasurement: Float) {
-
         val flow: List<Array<Float>>
         val arr = arrayOf(
                 arrayOf(leftPoint.x - diff - (textMeasurement - textMeasure), leftPoint.y),
@@ -201,25 +199,21 @@ internal class ChangeViewTextSettings : Parcelable {
 
     internal fun computeFirstPoint(angleInDegrees: Float, xTouch: Float, yTouch: Float) {
         computeRotatePoint(firstPoint, angleInDegrees, xTouch, yTouch)
-
         computeMovePoint(firstPoint)
     }
 
     internal fun computeSecondPoint(angleInDegrees: Float, xTouch: Float, yTouch: Float) {
         computeRotatePoint(secondPoint, angleInDegrees, xTouch, yTouch)
-
         computeMovePoint(secondPoint)
     }
 
     internal fun computeThirdPoint(angleInDegrees: Float, xTouch: Float, yTouch: Float) {
         computeRotatePoint(thirdPoint, angleInDegrees, xTouch, yTouch)
-
         computeMovePoint(thirdPoint)
     }
 
     internal fun computeFourthPoint(angleInDegrees: Float, xTouch: Float, yTouch: Float) {
         computeRotatePoint(fourthPoint, angleInDegrees, xTouch, yTouch)
-
         computeMovePoint(fourthPoint)
     }
 
@@ -486,7 +480,7 @@ internal class ChangeViewTextSettings : Parcelable {
     }
 
     /**
-     * Check if point is inside of given rectangle by coordinates
+     * Check if point is inside this rectangle
      *
      * @param  xTouch    X coordinate of point to check
      * @param  yTouch    Y coordinate of point to check
@@ -499,7 +493,7 @@ internal class ChangeViewTextSettings : Parcelable {
      * @param      x4    The X coordinate of the right bottom of the rectangle
      * @param      y4    The Y coordinate of the right bottom of the rectangle
      *
-     * @return true if point is inside of given rectangle and false in otherwise
+     * @return true if point is inside of this rectangle and false in otherwise
      */
     private fun isInPosition(xTouch: Float, yTouch: Float, x1: Float, y1: Float, x2: Float, y2: Float, x3: Float, y3: Float, x4: Float, y4: Float): Boolean {
         pseudoScalars.clear()
